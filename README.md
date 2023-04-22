@@ -1,58 +1,57 @@
-<!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Reaction Time Test</title>
-	<style>
-		body {
-			background-color: #f2f2f2;
-			font-family: Arial, sans-serif;
-			color: #333;
-			text-align: center;
-		}
-		h1 {
-			margin-top: 50px;
-			font-size: 36px;
-			font-weight: bold;
-			text-transform: uppercase;
-			letter-spacing: 2px;
-		}
-		.container {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin-top: 50px;
-		}
-		.dot {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 50px;
-			height: 50px;
-			border-radius: 50%;
-			background-color: red;
-			display: none;
-			cursor: pointer;
-		}
-		.dot.green {
-			background-color: green;
-		}
-		.timer {
-			font-size: 48px;
-			font-weight: bold;
-			margin-bottom: 20px;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <title>Reaction Time Test</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            color: #333;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 50px;
+            font-size: 36px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        .dot {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: red;
+            display: none;
+            cursor: pointer;
+        }
+        .dot.green {
+            background-color: green;
+        }
+        .timer {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-	<h1>Reaction Time Test</h1>
-	<div class="container">
-		<button id="startBtn">Start</button>
-		<div class="timer"></div>
-		<div class="dot"></div>
-		<div id="feedback"></div>
-	</div>
-	<script>
+    <h1>Reaction Time Test</h1>
+    <div class="container">
+        <button id="startBtn">Start</button>
+        <div class="timer"></div>
+        <div class="dot"></div>
+        <div id="feedback"></div>
+    </div>
+    <script>
         var startTime, reactionTime, dotTimeout, dotInterval;
         var dot = document.querySelector('.dot');
         var timer = document.querySelector('.timer');
@@ -73,8 +72,6 @@
                     dot.style.display = "block";
                     startTime = new Date().getTime();
                     dotTimeout = setTimeout(function() {
-                        feedback.innerHTML = "Too slow!";
-                        feedback.style.color = "red";
                         clearInterval(dotInterval);
                     }, Math.floor(Math.random() * 9000) + 1000);
                 }, Math.floor(Math.random() * 9000) + 1000);
@@ -82,15 +79,10 @@
         }
     
         function handleClick() {
-            if (dot.style.display === "none") {
-                feedback.innerHTML = "Too early!";
-                feedback.style.color = "red";
-                clearInterval(dotInterval);
-                clearTimeout(dotTimeout);
-            } else {
+            if (dot.style.display !== "none") {
                 var endTime = new Date().getTime();
                 reactionTime = (endTime - startTime) / 1000;
-                feedback.innerHTML = "Your reaction time was " + reactionTime + " seconds!";
+                feedback.innerHTML = "Your reaction time was " + reactionTime.toFixed(3) + " seconds!";
                 feedback.style.color = "green";
                 dot.style.backgroundColor = "green";
                 dot.removeEventListener('click', handleClick);
@@ -112,4 +104,5 @@
     
         dot.addEventListener('click', handleClick);
     </script>
-    
+</body>
+</html>
