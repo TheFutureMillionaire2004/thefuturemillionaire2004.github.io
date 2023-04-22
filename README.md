@@ -149,5 +149,4 @@ function disableBoard() {
     return true;
   }
 </script>
-</html>
   
