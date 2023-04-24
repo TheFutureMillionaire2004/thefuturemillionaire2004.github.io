@@ -73,7 +73,7 @@
         <div class="dot"></div>
         <div id="feedback"></div>
     </div>
-    <a class="contribute" href="https://github.com/TheFutureMillionaire2004/Donate.git" target="_blank">Contribute to future projects</a>
+    <a class="contribute" href="https://github.com/TheFutureMillionaire2004/Donate/" target="_blank">Contribute to future projects</a>
 
     <script>
     var startTime, reactionTime, dotTimeout, dotInterval;
