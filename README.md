@@ -140,7 +140,7 @@ contributeLink.addEventListener('mouseout', function() {
 });
 
 contributeLink.addEventListener('click', function() {
-    window.open("https://thefuturemillionaire2004.github.io/game/", "_blank");
+    window.open("https://thefuturemillionaire2004.github.io/donate/", "_blank");
 });
 
 </script>
